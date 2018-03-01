@@ -10,7 +10,7 @@ Fourment M & Darling AE. Local and relaxed clocks, the best of both worlds.
 
 ## [physher](https://github.com/4ment/physher)
 
-The python script needs `simultron` to simulate the nucleotide alignment.
+The python script needs `simultron` to simulate nucleotide alignments. Download and compile [v1.0.2](https://github.com/4ment/physher/releases/tag/v1.0.2) only.
 
 ## [BEAST2](https://www.beast2.org)
 
