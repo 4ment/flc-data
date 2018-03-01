@@ -1,5 +1,9 @@
 # Flexible local clocks
 
+This repository contains the data sets supporting the results of the following article:
+
+Fourment M & Darling AE. Local and relaxed clocks, the best of both worlds.
+
 # Requirements
 
 ## The FLC package [FLC](https://github.com/4ment/flc)
