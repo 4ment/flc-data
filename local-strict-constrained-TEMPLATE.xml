@@ -238,7 +238,7 @@ B19_19=19.0                <taxa id="TaxonSet.data" spec="TaxonSet">
                 </siteModel>
                 
                 <!-- CLOC -->
-				 <branchRateModel spec='mf.beast.evolution.branchratemodel.ExtendedLocalClockModel' id="RelaxedClock.c:data" tree='@Tree.t:data'>
+				 <branchRateModel spec='mf.beast.evolution.branchratemodel.FlexibleLocalClockModel' id="RelaxedClock.c:data" tree='@Tree.t:data'>
                 
 					<rootClockModel id="RelaxedClock.E" clock.rate="@ucldMean.E" spec="mf.beast.evolution.branchratemodel.StrictLineageClockModel"/>
 					

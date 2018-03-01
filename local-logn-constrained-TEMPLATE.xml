@@ -259,7 +259,7 @@ B19_19=19.0                <taxa id="TaxonSet.data" spec="TaxonSet">
                 </siteModel>
                 
                 <!-- CLOC -->
-				 <branchRateModel spec='mf.beast.evolution.branchratemodel.ExtendedLocalClockModel' id="RelaxedClock.c:data" tree='@Tree.t:data'>
+				 <branchRateModel spec='mf.beast.evolution.branchratemodel.FlexibleLocalClockModel' id="RelaxedClock.c:data" tree='@Tree.t:data'>
                 
 					<rootClockModel id="RelaxedClock.E" clock.rate="@ucldMean.E" rateCategories="@rateCategories.E" spec="mf.beast.evolution.branchratemodel.UCRelaxedLineageClockModel" tree="@Tree.t:data">
 						<LogNormal S="@ucldStdev.E" id="LogNormalDistributionModel.E" meanInRealSpace="true" name="distr">
@@ -361,7 +361,7 @@ B19_19=19.0                <taxa id="TaxonSet.data" spec="TaxonSet">
         <log idref="ucldMean.c:data"/>
         <log idref="ucldStdev.c:data"/>
  -->
-        <log id="rate.c:data" spec="mf.beast.evolution.branchratemodel.CLOCRateStatistic" branchratemodel="@RelaxedClock.c:data" tree="@Tree.t:data"/>
+        <log id="rate.c:data" spec="mf.beast.evolution.branchratemodel.FLCRateStatistic" branchratemodel="@RelaxedClock.c:data" tree="@Tree.t:data"/>
         <log idref="B.prior"/>
         <log idref="E.prior"/>
         <log idref="H.prior"/>
