@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.4">
+
+
+    <data
+id="data"
+name="alignment">
+TEMPLATE_SEQUENCE
+                    </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:data" name="stateNode">
+            <trait id="dateTrait.t:data" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
+                E0_0=0.0,
+E1_1=1.0,
+E2_2=2.0,
+E3_3=3.0,
+E4_4=4.0,
+E5_5=5.0,
+E6_6=6.0,
+E7_7=7.0,
+E8_8=8.0,
+E9_9=9.0,
+E10_10=10.0,
+E11_11=11.0,
+E12_12=12.0,
+E13_13=13.0,
+E14_14=14.0,
+E15_15=15.0,
+E16_16=16.0,
+E17_17=17.0,
+E18_18=18.0,
+E19_19=19.0,
+H0_0=0.0,
+H1_1=1.0,
+H2_2=2.0,
+H3_3=3.0,
+H4_4=4.0,
+H5_5=5.0,
+H6_6=6.0,
+H7_7=7.0,
+H8_8=8.0,
+H9_9=9.0,
+H10_10=10.0,
+H11_11=11.0,
+H12_12=12.0,
+H13_13=13.0,
+H14_14=14.0,
+H15_15=15.0,
+H16_16=16.0,
+H17_17=17.0,
+H18_18=18.0,
+H19_19=19.0,
+B0_0=0.0,
+B1_1=1.0,
+B2_2=2.0,
+B3_3=3.0,
+B4_4=4.0,
+B5_5=5.0,
+B6_6=6.0,
+B7_7=7.0,
+B8_8=8.0,
+B9_9=9.0,
+B10_10=10.0,
+B11_11=11.0,
+B12_12=12.0,
+B13_13=13.0,
+B14_14=14.0,
+B15_15=15.0,
+B16_16=16.0,
+B17_17=17.0,
+B18_18=18.0,
+B19_19=19.0                <taxa id="TaxonSet.data" spec="TaxonSet">
+                    <alignment idref="data"/>
+                </taxa>
+            </trait>
+            <taxonset idref="TaxonSet.data"/>
+        </tree>
+        <parameter id="kappa.s:data" lower="0.0" name="stateNode">3.0</parameter>
+        <parameter id="ucldMean.c:data" name="stateNode">0.0015</parameter>
+        <parameter id="ucldStdev.c:data" lower="0.0" name="stateNode">0.2</parameter>
+        <stateNode id="rateCategories.c:data" spec="parameter.IntegerParameter" dimension="118">1</stateNode>
+
+        <parameter id="bPopSizes.t:data" dimension="5" lower="0.0" name="stateNode" upper="380000.0">10.0</parameter>
+        <stateNode id="bGroupSizes.t:data" spec="parameter.IntegerParameter" dimension="5" lower="1">1	1	1	49	7</stateNode>
+        <parameter id="freqParameter.s:data" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+    </state>
+
+    <!--init id="RandomTree.t:data" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:data" taxa="@data">
+        <populationModel id="ConstantPopulation0.t:data" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:data" name="popSize">1.0</parameter>
+        </populationModel>
+    </init-->
+	
+	<init spec="beast.util.TreeParser" id="RandomTree.t:data" initial="@Tree.t:data" taxa="@data" IsLabelledNewick="true" newick="((((((((((((((((((((E0_0:2.0,E1_1:1.0):1.0,E2_2:1.0):1.0,E3_3:1.0):1.0,E4_4:1.0):1.0,E5_5:1.0):1.0,E6_6:1.0):1.0,E7_7:1.0):1.0,E8_8:1.0):1.0,E9_9:1.0):1.0,E10_10:1.0):1.0,E11_11:1.0):1.0,E12_12:1.0):1.0,E13_13:1.0):1.0,E14_14:1.0):1.0,E15_15:1.0):1.0,E16_16:1.0):1.0,E17_17:1.0):1.0,E18_18:1.0):1.0,E19_19:1.0):30.0,((((((((((((((((((((H0_0:2.0,H1_1:1.0):1.0,H2_2:1.0):1.0,H3_3:1.0):1.0,H4_4:1.0):1.0,H5_5:1.0):1.0,H6_6:1.0):1.0,H7_7:1.0):1.0,H8_8:1.0):1.0,H9_9:1.0):1.0,H10_10:1.0):1.0,H11_11:1.0):1.0,H12_12:1.0):1.0,H13_13:1.0):1.0,H14_14:1.0):1.0,H15_15:1.0):1.0,H16_16:1.0):1.0,H17_17:1.0):1.0,H18_18:1.0):1.0,H19_19:1.0):25.0,(((((((((((((((((((B0_0:2.0,B1_1:1.0):1.0,B2_2:1.0):1.0,B3_3:1.0):1.0,B4_4:1.0):1.0,B5_5:1.0):1.0,B6_6:1.0):1.0,B7_7:1.0):1.0,B8_8:1.0):1.0,B9_9:1.0):1.0,B10_10:1.0):1.0,B11_11:1.0):1.0,B12_12:1.0):1.0,B13_13:1.0):1.0,B14_14:1.0):1.0,B15_15:1.0):1.0,B16_16:1.0):1.0,B17_17:1.0):1.0,B18_18:1.0):1.0,B19_19:1.0):25.0):5.0);">
+	</init>
+	
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="BayesianSkyline.t:data" spec="BayesianSkyline" groupSizes="@bGroupSizes.t:data" popSizes="@bPopSizes.t:data">
+                <treeIntervals id="BSPTreeIntervals.t:data" spec="TreeIntervals" tree="@Tree.t:data"/>
+            </distribution>
+            <distribution id="MarkovChainedPopSizes.t:data" spec="beast.math.distributions.MarkovChainDistribution" jeffreys="true" parameter="@bPopSizes.t:data"/>
+            <prior id="KappaPrior.s:data" name="distribution" x="@kappa.s:data">
+                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                    <parameter id="RealParameter.1" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.2" estimate="false" name="S">1.25</parameter>
+                </LogNormal>
+            </prior>
+            
+            <prior id="MeanRatePrior.c:data" name="distribution" x="@ucldMean.c:data">
+                <Exponential id="Exponential.2" name="distr">
+                    <parameter id="RealParameter.7" estimate="false" name="mean">0.003</parameter>
+                </Exponential>
+            </prior>
+            <prior id="ucldStdevPrior.c:data" name="distribution" x="@ucldStdev.c:data">
+	            <Exponential id="Exponential.0B" name="distr">
+                    <parameter estimate="false" id="RealParameter.010B" name="mean" value="0.3333"/>
+                </Exponential>
+            </prior>
+            <distribution id="B.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:data">
+                <taxonset id="B" spec="TaxonSet">
+                    <taxon id="B0_0" spec="Taxon"/>
+                    <taxon id="B10_10" spec="Taxon"/>
+                    <taxon id="B11_11" spec="Taxon"/>
+                    <taxon id="B12_12" spec="Taxon"/>
+                    <taxon id="B13_13" spec="Taxon"/>
+                    <taxon id="B14_14" spec="Taxon"/>
+                    <taxon id="B15_15" spec="Taxon"/>
+                    <taxon id="B16_16" spec="Taxon"/>
+                    <taxon id="B17_17" spec="Taxon"/>
+                    <taxon id="B18_18" spec="Taxon"/>
+                    <taxon id="B19_19" spec="Taxon"/>
+                    <taxon id="B1_1" spec="Taxon"/>
+                    <taxon id="B2_2" spec="Taxon"/>
+                    <taxon id="B3_3" spec="Taxon"/>
+                    <taxon id="B4_4" spec="Taxon"/>
+                    <taxon id="B5_5" spec="Taxon"/>
+                    <taxon id="B6_6" spec="Taxon"/>
+                    <taxon id="B7_7" spec="Taxon"/>
+                    <taxon id="B8_8" spec="Taxon"/>
+                    <taxon id="B9_9" spec="Taxon"/>
+                </taxonset>
+            </distribution>
+            <distribution id="E.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:data">
+                <taxonset id="E" spec="TaxonSet">
+                    <taxon id="E0_0" spec="Taxon"/>
+                    <taxon id="E10_10" spec="Taxon"/>
+                    <taxon id="E11_11" spec="Taxon"/>
+                    <taxon id="E12_12" spec="Taxon"/>
+                    <taxon id="E13_13" spec="Taxon"/>
+                    <taxon id="E14_14" spec="Taxon"/>
+                    <taxon id="E15_15" spec="Taxon"/>
+                    <taxon id="E16_16" spec="Taxon"/>
+                    <taxon id="E17_17" spec="Taxon"/>
+                    <taxon id="E18_18" spec="Taxon"/>
+                    <taxon id="E19_19" spec="Taxon"/>
+                    <taxon id="E1_1" spec="Taxon"/>
+                    <taxon id="E2_2" spec="Taxon"/>
+                    <taxon id="E3_3" spec="Taxon"/>
+                    <taxon id="E4_4" spec="Taxon"/>
+                    <taxon id="E5_5" spec="Taxon"/>
+                    <taxon id="E6_6" spec="Taxon"/>
+                    <taxon id="E7_7" spec="Taxon"/>
+                    <taxon id="E8_8" spec="Taxon"/>
+                    <taxon id="E9_9" spec="Taxon"/>
+                </taxonset>
+            </distribution>
+            <distribution id="H.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:data">
+                <taxonset id="H" spec="TaxonSet">
+                    <taxon id="H0_0" spec="Taxon"/>
+                    <taxon id="H10_10" spec="Taxon"/>
+                    <taxon id="H11_11" spec="Taxon"/>
+                    <taxon id="H12_12" spec="Taxon"/>
+                    <taxon id="H13_13" spec="Taxon"/>
+                    <taxon id="H14_14" spec="Taxon"/>
+                    <taxon id="H15_15" spec="Taxon"/>
+                    <taxon id="H16_16" spec="Taxon"/>
+                    <taxon id="H17_17" spec="Taxon"/>
+                    <taxon id="H18_18" spec="Taxon"/>
+                    <taxon id="H19_19" spec="Taxon"/>
+                    <taxon id="H1_1" spec="Taxon"/>
+                    <taxon id="H2_2" spec="Taxon"/>
+                    <taxon id="H3_3" spec="Taxon"/>
+                    <taxon id="H4_4" spec="Taxon"/>
+                    <taxon id="H5_5" spec="Taxon"/>
+                    <taxon id="H6_6" spec="Taxon"/>
+                    <taxon id="H7_7" spec="Taxon"/>
+                    <taxon id="H8_8" spec="Taxon"/>
+                    <taxon id="H9_9" spec="Taxon"/>
+                </taxonset>
+            </distribution>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="treeLikelihood.data" spec="ThreadedTreeLikelihood" data="@data" tree="@Tree.t:data">
+                <siteModel id="SiteModel.s:data" spec="SiteModel">
+                    <parameter id="mutationRate.s:data" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:data" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:data" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="hky.s:data" spec="HKY" kappa="@kappa.s:data">
+                        <frequencies id="estimatedFreqs.s:data" spec="Frequencies" frequencies="@freqParameter.s:data"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="RelaxedClock.c:data" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:data" rateCategories="@rateCategories.c:data" tree="@Tree.t:data">
+                    <LogNormal id="LogNormalDistributionModel.c:data" S="@ucldStdev.c:data" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.3" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="KappaScaler.s:data" spec="ScaleOperator" parameter="@kappa.s:data" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="ucldMeanScaler.c:data" spec="ScaleOperator" parameter="@ucldMean.c:data" scaleFactor="0.5" weight="1.0"/>
+
+    <operator id="ucldStdevScaler.c:data" spec="ScaleOperator" parameter="@ucldStdev.c:data" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:data" spec="IntRandomWalkOperator" parameter="@rateCategories.c:data" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:data" spec="SwapOperator" intparameter="@rateCategories.c:data" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:data" spec="UniformOperator" parameter="@rateCategories.c:data" weight="10.0"/>
+
+    <operator id="relaxedUpDownOperator.c:data" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+        <up idref="ucldMean.c:data"/>
+        <down idref="Tree.t:data"/>
+    </operator>
+
+    <operator id="BayesianSkylineTreeScaler.t:data" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:data" weight="3.0"/>
+
+    <operator id="BayesianSkylineTreeRootScaler.t:data" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:data" weight="3.0"/>
+
+    <operator id="BayesianSkylineUniformOperator.t:data" spec="Uniform" tree="@Tree.t:data" weight="30.0"/>
+
+    <operator id="BayesianSkylineSubtreeSlide.t:data" spec="SubtreeSlide" tree="@Tree.t:data" weight="15.0"/>
+
+    <operator id="BayesianSkylineNarrow.t:data" spec="Exchange" tree="@Tree.t:data" weight="15.0"/>
+
+    <operator id="BayesianSkylineWide.t:data" spec="Exchange" isNarrow="false" tree="@Tree.t:data" weight="3.0"/>
+
+    <operator id="BayesianSkylineWilsonBalding.t:data" spec="WilsonBalding" tree="@Tree.t:data" weight="3.0"/>
+
+    <operator id="popSizesScaler.t:data" spec="ScaleOperator" parameter="@bPopSizes.t:data" scaleFactor="0.75" weight="15.0"/>
+
+    <operator id="groupSizesDelta.t:data" spec="DeltaExchangeOperator" integer="true" weight="6.0">
+        <intparameter idref="bGroupSizes.t:data"/>
+    </operator>
+
+    <operator id="FrequenciesExchanger.s:data" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:data"/>
+    </operator>
+
+    <logger id="tracelog" fileName="data.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.data"/>
+        <log id="TreeHeight.t:data" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:data"/>
+        <log idref="kappa.s:data"/>
+        <log idref="ucldMean.c:data"/>
+        <log idref="ucldStdev.c:data"/>
+        <log id="rate.c:data" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:data" tree="@Tree.t:data"/>
+        <log idref="B.prior"/>
+        <log idref="E.prior"/>
+        <log idref="H.prior"/>
+        <log idref="BayesianSkyline.t:data"/>
+        <log idref="bPopSizes.t:data"/>
+        <log idref="bGroupSizes.t:data"/>
+        <log idref="freqParameter.s:data"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="2000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:data" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:data" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:data" tree="@Tree.t:data"/>
+    </logger>
+
+</run>
+
+</beast>
